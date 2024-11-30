@@ -1,4 +1,6 @@
+import 'package:first_assignment/view/area_of_circle_view.dart';
 import 'package:first_assignment/view/artihmetic_view.dart';
+import 'package:first_assignment/view/simple_interest_view.dart';
 import 'package:flutter/material.dart';
 
 class DashboardView extends StatelessWidget {
@@ -37,7 +39,7 @@ class DashboardView extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ArithmeticView()),
+                        builder: (context) => const AreaOfCircleView()),
                   );
                 },
                 child: Container(
@@ -73,7 +75,7 @@ class DashboardView extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ArithmeticView()),
+                        builder: (context) => const SimpleInterestView()),
                   );
                 },
                 child: Container(
