@@ -26,10 +26,18 @@ class _AreaOfCircleViewState extends State<AreaOfCircleView> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue[700],
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue, Colors.blueAccent],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(20),
         child: Form(
           key: myKey,
           child: Column(
@@ -39,9 +47,14 @@ class _AreaOfCircleViewState extends State<AreaOfCircleView> {
               TextFormField(
                 controller: radiusController,
                 keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Enter radius',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  prefixIcon: const Icon(Icons.circle),
+                  filled: true,
+                  fillColor: Colors.grey[200],
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -54,14 +67,17 @@ class _AreaOfCircleViewState extends State<AreaOfCircleView> {
                   return null;
                 },
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               Text(
                 'Area: ${area.toStringAsFixed(2)}',
                 textAlign: TextAlign.center,
-                style:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueAccent,
+                ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
                   if (myKey.currentState!.validate()) {
@@ -71,10 +87,18 @@ class _AreaOfCircleViewState extends State<AreaOfCircleView> {
                     });
                   }
                 },
-                child: const Text(
-                  'Calculate Area',
-                  style: TextStyle(fontSize: 18),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: Colors.blueAccent,
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                child: const Text('Calculate Area'),
               ),
             ],
           ),
